@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Bookshelf</string>
+    <string name="book_image">Book image</string>
+    <string name="description_error_icon">Error icon</string>
+    <string name="message_error_generic">Something went wrong!</string>
+    <string name="action_preview">Preview This Book</string>
+</resources>
