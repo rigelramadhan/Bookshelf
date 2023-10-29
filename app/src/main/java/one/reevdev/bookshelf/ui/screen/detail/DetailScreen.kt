@@ -46,6 +46,7 @@ fun DetailScreen(
         is DetailUiState.Success -> {
             val data = (uiState as DetailUiState.Success).book
             DetailContent(
+                modifier = modifier,
                 title = data.title,
                 imageUrl = data.imageLink
             )
@@ -74,8 +75,8 @@ fun DetailContent(
             modifier = Modifier
                 .aspectRatio(3 / 4f)
                 .fillMaxWidth()
-                .clip(RoundedCornerShape(24.dp))
-                .padding(16.dp),
+                .padding(16.dp)
+                .clip(RoundedCornerShape(24.dp)),
             model = imageUrl,
             contentScale = ContentScale.Crop,
             contentDescription = stringResource(R.string.description_book_image),
