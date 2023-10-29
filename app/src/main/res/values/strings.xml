@@ -4,4 +4,5 @@
     <string name="description_error_icon">Error icon</string>
     <string name="message_error_generic">Something went wrong!</string>
     <string name="action_preview">Preview This Book</string>
+    <string name="description_book_image">Book image</string>
 </resources>

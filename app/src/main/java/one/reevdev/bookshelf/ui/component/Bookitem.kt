@@ -1,6 +1,7 @@
 package one.reevdev.bookshelf.ui.component
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -25,9 +26,11 @@ fun BookItem(
     modifier: Modifier = Modifier,
     title: String,
     imageUrl: String,
+    navigateToDetail: () -> Unit,
 ) {
     Column(
         modifier = modifier
+            .clickable { navigateToDetail() }
     ) {
         AsyncImage(
             modifier = Modifier
@@ -54,6 +57,8 @@ fun BookItem(
 @Composable
 fun BookItemPreview() {
     BookshelfTheme {
-        BookItem(title = "This is a Book: 2019 Edition", imageUrl = "")
+        BookItem(title = "This is a Book: 2019 Edition", imageUrl = "") {
+
+        }
     }
 }

@@ -25,6 +25,7 @@ import one.reevdev.bookshelf.ui.theme.BookshelfTheme
 fun HomeScreen(
     modifier: Modifier = Modifier,
     viewModel: HomeViewModel = hiltViewModel(),
+    navigateToDetail: (String) -> Unit,
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
 
@@ -39,7 +40,8 @@ fun HomeScreen(
             val data = (uiState as HomeUiState.Success).books
             HomeContent(
                 modifier = modifier,
-                bookList = data
+                bookList = data,
+                navigateToDetail = navigateToDetail
             )
         }
 
@@ -57,6 +59,7 @@ fun HomeScreen(
 fun HomeContent(
     modifier: Modifier = Modifier,
     bookList: List<Book>,
+    navigateToDetail: (String) -> Unit,
 ) {
     LazyVerticalGrid(
         modifier = modifier,
@@ -65,7 +68,8 @@ fun HomeContent(
             items(items = bookList, key = { it.id }) {
                 BookItem(
                     title = it.title,
-                    imageUrl = it.imageLink
+                    imageUrl = it.imageLink,
+                    navigateToDetail = { navigateToDetail(it.id) }
                 )
             }
         },
@@ -117,6 +121,6 @@ fun HomeContentPreview() {
         ),
     )
     BookshelfTheme {
-        HomeContent(bookList = bookListDummy)
+        HomeContent(bookList = bookListDummy) {}
     }
 }
